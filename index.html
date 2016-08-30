@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html>
+
+<!--  verion 1 -->
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="theme-color" content="red">
+  <title>Side Nav</title>
+
+  <link href="./styles.css" rel="stylesheet">
+  <!-- Video bits for the background-image -->
+  <video autoplay loop poster="coffee.png" id="bgvid">
+
+      <source src="coffee.mp4" type="video/mp4">
+  </video>
+  <script src="./modernizr.min.js"></script>
+</head>
+
+
+<body>
+
+
+
+<div class= "content">
+  <div class="header">
+    <button class="js-menu-show header__menu-toggle material-icons">menu</button>
+  </div>
+  <div class="mainbody">
+    <h1>  This is the <span> main </span> page</h1>
+
+       <div class="logos">
+          <a class="cube" href="">
+          <!--  we are going to insert an image here from css and animate it, using the :after css for cube -->
+          </a>
+      </div>
+
+  <ul id="Flex-list" class="flex-container">
+    <li class="flex-item">
+      <div id=mapDiv>
+        <form id="mapForm">
+          <input type="button" id=mapbutton value="Toggle Map">
+        </form>
+      </div>
+
+    </li>
+
+    <li class="flex-item">
+           <div id=mapDiv>
+            <form id="mapForm">
+              <input type="button" id=canvasbutton value="Canvas">
+            </form>
+          </div>
+    </li>
+
+
+    <li class="flex-item">
+           <div id="DND">
+            <form id="DND">
+              <input type="button" id=dndButton value="To Do List">
+            </form>
+          </div>
+    </li>
+
+    <li class="flex-item"> Four Four Four Four  </li>
+    <li class="flex-item"> Five Five Five Five Five  </li>
+    <li class="flex-item"> Six Six Six Six Six Six </li>
+    <li class="flex-item"> Seven Seven Seven Seven Seven Seven Seven </li>
+    <li class="flex-item"> Eight Eight Eight Eight Eight Eight Eight Eight </li>
+  </ul>
+
+  <aside class="js-side-nav side-nav">
+    <nav class="js-side-nav-container side-nav__container">
+      <button class="js-menu-hide side-nav__hide material-icons">close</button>
+
+      <header class="side-nav__header">
+        Side Nav
+      </header>
+      <ul class="side-nav__content">
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+      </ul>
+    </nav>
+  </aside>
+
+    <div id="maplocation" class="mapDiv"> </div>
+
+    <div id="CanvasID" class="canvasDiv">
+      <canvas id="simpleCanvas" class="myCanvas" width="300" height="300">  <!-- this will be our canvas holder for canvas.js -->
+      </canvas>
+    </div>
+
+    <div id="DND-area" class="dragArea">
+      <div class="dragColumn">
+        <h1>To Do List</h1>
+           <ul id="Flex-list" class="drag-flex-container">
+             <li class="flex-item"> Buy TV </li>
+             <li class="flex-item"> hook up concast</li>
+             <li class="flex-item"> Transport everything in the car </li>
+             <li class="flex-item"> Make Appointment for install  </li>
+             <li class="flex-item"> Buy a DVD player </li>
+             <li class="flex-item"> Watch Movies </li>
+           </ul>
+      </div>
+        <br>
+      <div class="dragColumn">
+        <h1> Complete </h1>
+         <ul id="Target" id="Flex-list" class="drag-flex-container">
+             <li id="l2r1"class="flex-item"> </li>
+
+        </ul>
+      </div>
+  </div>
+
+  <script src='./side-nav.js'></script>
+  <script src='./geolocation.js'></script>
+  <script src='./canvas.js'></script>
+  <script src='./dragAndDrop.js'></script>
+
+
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+  <script type="text/javascript" src="inert.js"></script>
+
+
+    </body>
+</div>
+
+</body>
+</html>

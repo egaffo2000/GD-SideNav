@@ -1,0 +1,381 @@
+
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v16/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+  /* background: #FAFAFA;
+  background-image: linear-gradient(#FFF, #000);*/
+  font-family: Arial, sans-serif;
+}
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(coffee.png) no-repeat;
+    background-size: cover;
+}
+.header {
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.9);
+  background: rgba(85,114,128, 0.9);
+
+  color: #FFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 16px;
+}
+
+
+.content {
+  margin:0;
+  padding:0;
+  height:100%;
+/*    background-image: radial-gradient(circle farthest-side at 30px 30px, #FFF, #9CCCD4 70%, #FFF);*/
+
+}
+
+.mainbody h1 {
+  background: rgba(245, 236, 220, .5);
+}
+
+.mainbody h1:hover span {   /* this is going to make a H1 that has a span that is part of a mainbody to change color and move */
+   color: white;
+
+    transform: translateX(20px) translateY(20px);
+    transition-property: color, transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0s;
+}
+
+.mainbody h1 span {
+  display: inline-block;
+
+
+}
+
+.header__menu-toggle {
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  color: #FFF;
+
+}
+
+.side-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.side-nav--visible {
+  pointer-events: auto; /* */
+}
+
+.side-nav::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.9s cubic-bezier(0,0,0.3,1);
+}
+
+/* this is the container double underscore means child off  and double dash means modifier on a thing. CSS selectors stay shorter */
+.side-nav__container {
+  position: relative;
+  width: 90%;
+  max-width: 400px;   /* this is the max with and also the 90% allows for SFF */
+  background: #FFF;
+  height: 100%;
+  box-shadow: 2px 0 12px rgba(0,0,0,0);
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0,0,0.3,1); /* this is making is slide out */
+}
+.side-nav--animatable .side-nav__container {
+  transition: transform 0.3s cubic-bezier(0,0,0.3,1);
+}
+
+.side-nav--visible.side-nav--animatable .side-nav__container {
+  transition: transform 0.33s cubic-bezier(0,0,0.3,1);
+}
+
+.side-nav--visible::before {
+  opacity: 1;
+}
+
+.side-nav--visible .side-nav__container {
+  transform: none;
+}
+
+.side-nav__hide {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  background: none;
+  border: none;
+  color: #FFF;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav__header {
+  height: 200px;
+  background: #EA2663;
+  color: #FFF;
+  display: flex;
+  padding: 16px;
+  align-items: flex-end;
+  font-size: 24px;
+}
+
+.side-nav__content {
+  padding-top: 32px;
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.side-nav__content li {
+  height: 48px;
+  line-height: 48px;
+  padding: 0 16px;
+}
+
+.side-nav__content li:hover {
+  background: #CCC;
+}
+
+
+.logos {
+
+  position:relative;
+   perspective: 900px;
+   background: rgba(245, 236, 220, .3);
+
+}
+
+
+
+.cube {
+  display: block;  position: relative;  margin: 20px auto;
+  margin:auto;
+  transform-style: preserve-3d;
+  transform: rotateX(0) rotateY(0) rotateZ(0);
+
+  animation: spinaround 5s infinite linear;     /* this is a container for our bicycle to rotate around */
+  animation-play-state: paused;
+
+}
+
+
+/*  this will allow us to insert the sprite and control the size so we only show the bike size. */
+.cube:after  {
+  content: '';
+  will-change: transform;
+  width: 90px;
+  height: 92px;
+  background-image: url(bike_sprite.png);
+  backface-visibility: visible;   /* this is the default but setting to hidden will mean we wouldnt see its reverse */
+  display:block;
+  margin:auto;
+  transform:  translateZ(200px);   /* this moves the image away from the center */
+
+  animation: bike steps(4, start) infinite 0.3s; /* this will rotate the sprite 4 times into view. every .3 seconds */
+  animation-play-state: paused;
+}
+
+@keyframes bike {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -360px 0; }
+	}
+
+  @keyframes spinaround {
+    0% { transform: rotateY(0) ;}
+    100% { transform: rotateY(360deg) ;}
+  }
+
+.cube:hover{
+  animation-play-state: running;
+}
+.cube:hover:after {
+  animation-play-state: running;
+}
+
+
+.flex-container {
+  list-style-type: none;
+
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: space-around;
+
+}
+
+.dragArea {
+  display: none;
+  flex-flow: row;
+
+  width: 90%;
+  min-height: 300px;
+  margin: 30px;
+  justify-content: center;
+
+}
+
+.dragColumn {
+    border: 2px solid #ccc;
+    width: inherit;
+    height: inherit;
+}
+
+.drag-flex-container {
+  display: flex;
+  flex-flow: column nowrap;
+
+  font-family: Arial, sans-serif;
+  list-style-type: none;
+
+  align-items: stretch;
+  justify-content: flex-start;
+
+  height: 300px;
+
+}
+
+.drag-element-moving {
+    transform: scale(0.8);
+    opacity: 0.25;
+}
+
+.flex-item {
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid;
+  margin-right: 10px;
+  background-color: #9CCCD4;
+  opacity: 0.6;
+  min-height: 60px;
+}
+
+
+
+@media screen and (max-width:700px) {
+  .flex-container {
+    flex-flow: column;
+  }
+  .cube:after {
+    transform:  translateZ(100px);   /* this moves the image away from the center */
+
+    animation: bike steps(4, start) infinite 0.3s; /* this will rotate the sprite 4 times into view. every .3 seconds */
+    animation-play-state: paused;
+  }
+}
+
+input[type=button]{
+  border-radius: 5px;
+  background-image: radial-gradient(circle at 30% 120%, #F3E3E3 0%, rgba(255,152,0, 1) 10%);
+  color: #fff;
+  font-family: LeagueGothic, Tahoma, Geneva, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  margin: 10px auto;
+
+}
+
+.mapDiv {
+  border: 2px solid #ccc;
+  position: relative;
+  width: 400px;
+  min-height: 300px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 10px auto;
+  display: none;
+
+}
+
+.canvasDiv {
+  border: 2px solid #ccc;
+  position: relative;
+  width: 80%;
+  min-height: 300px;
+  border-radius: 5px;
+  background-color: #6AF5E6;
+  margin: 10px auto;
+  display: none;
+
+}
+
+.myCanvas {
+  border: 2px dotted black;
+}

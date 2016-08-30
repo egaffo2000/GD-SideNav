@@ -1,0 +1,17 @@
+CACHE MANIFEST
+
+# v10
+
+CACHE:
+index.html
+styles.css
+coffee.png
+side-nav.js
+geolocation.js
+coffee.png
+
+FALLBACK:
+media/ coffee.png
+
+NETWORK:
+*
